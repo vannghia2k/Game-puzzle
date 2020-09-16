@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    img{
+        width: 400px;
+        height: 400px;
+    }
+</style>
+<body id="main">
+<img id="img1" onclick="changeImage(1)" src="anh1.jpg" alt="1">
+<img id="img2" onclick="changeImage(2)" src="anh2.jpg" alt="2">
+<img id="img3" onclick="changeImage(3)" src="anh3.jpg" alt="3">
+
+<script>
+    // function createImage() {
+    //     let main = document.getElementById("main");
+    //     let str ="";
+    //     for (let i = 0; i < 100; i++) {
+    //         str += `<img id="img${i}" onclick="changeImage(${i})" src="images/anh5.jpg" alt="5">`
+    //     }
+    //
+    //     main.innerHTML = str;
+    // }
+    function changeImage(id) {
+        let img = document.getElementById("img"+id);
+        let index = +img.alt;
+        //
+        // if(index < 5){
+        //     index++;
+        // }else {
+        //     index = 1;
+        // }
+
+        index<5?index++:index=1;
+
+        img.src = "anh"+index+".jpg";
+        // img.src =`images/anh${index}.jpg`;
+        img.alt = index;
+        checkWin();
+
+    }
+
+    function checkWin() {
+        let img1 = document.getElementById("img1");
+        let img2 = document.getElementById("img2");
+        let img3 = document.getElementById("img3");
+
+        if(img1.alt === img2.alt && img2.alt === img3.alt){
+            alert("Da xep hinh xong!");
+        }
+    }
+
+    // createImage();
+</script>
+</body>
+</html>
